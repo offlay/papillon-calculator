@@ -15,7 +15,7 @@ body {
 }
 
 h1 {
-    color: #0d6efd; /* Яркий синий для главного заголовка */
+    color: #084a6a; /* Яркий синий для главного заголовка */
     margin-bottom: 30px;
     text-align: center;
 }
@@ -45,9 +45,9 @@ h2 {
 /* --- Блок выбора аллелей --- */
 .locus-block {
     margin-bottom: 18px;
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(200px, max-content) minmax(200px, max-content) minmax(200px, max-content);
     align-items: center;
-    flex-wrap: wrap;
     gap: 10px; /* Пространство между элементами в блоке */
 }
 
@@ -55,7 +55,7 @@ h2 {
 label {
     font-weight: 500; /* Средняя жирность */
     color: #495057;
-    min-width: 120px; /* Чуть шире для выравнивания */
+    grid-column: 1 / 2;
 }
 
 /* --- Выпадающие списки --- */
@@ -68,6 +68,7 @@ select {
     font-size: 0.95em;
     cursor: pointer;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    margin-right: 0;
 }
 
 select:focus {
@@ -106,7 +107,7 @@ select:focus {
 /* Текст фенотипа (родитель) */
 .phenotype-display {
     font-weight: 600; /* Пожирнее */
-    color: #0d6efd; /* Используем основной синий цвет */
+    color: #0f587c; /* Используем основной синий цвет */
     font-size: 1.05em;
 }
 
@@ -119,7 +120,7 @@ select:focus {
     font-size: 1.1em;
     font-weight: 600; /* Пожирнее */
     cursor: pointer;
-    background-color: #0d6efd; /* Основной синий */
+    background-color: #0a3c62; /* Основной синий */
     color: white;
     border: none;
     border-radius: 8px; /* Скругление */
@@ -128,19 +129,20 @@ select:focus {
 }
 
 #calculate-button:hover {
-    background-color: #0b5ed7; /* Немного темнее синий при наведении */
+    background-color: #052b49; /* Основной синий */
+    background-color: ; /* Немного темнее синий при наведении */
     transform: translateY(-1px); /* Легкий подъем при наведении */
 }
 
 #calculate-button:active {
     transform: translateY(0); /* Возврат при нажатии */
-    box-shadow: 0 1px 4px rgba(13, 110, 253, 0.3);
+    box-shadow: 0 1px 4px rgba(13, 161, 253, 0.3);
 }
 
 
 /* --- Секция и список результатов --- */
 #results-section h2 {
-     border-bottom-color: #0d6efd; /* Синяя линия для заголовка результатов */
+     border-bottom-color: #abc7ff; /* Синяя линия для заголовка результатов */
 }
 
 #results-list {
@@ -177,16 +179,17 @@ select:focus {
         padding: 15px 20px;
     }
     .locus-block {
-        flex-direction: column; /* Располагаем элементы вертикально на малых экранах */
-        align-items: flex-start; /* Выравнивание по левому краю */
+        display: flex; /* На малых экранах возвращаем Flexbox */
+        flex-direction: column; /* Ставим элементы в столбик */
+        align-items: stretch; /* Растягиваем элементы по ширине контейнера */
+        gap: 8px; /* Уменьшаем вертикальный отступ между элементами */
+        /* Свойства grid здесь больше не действуют */
     }
     label {
-        min-width: auto; /* Сбрасываем мин. ширину лейбла */
-        margin-bottom: 5px;
+        margin-bottom: 0;
     }
     select {
          width: 100%; /* Селекты на всю ширину */
-         margin-right: 0;
          box-sizing: border-box;
     }
     .phenotype-display-container {
@@ -201,4 +204,12 @@ select:focus {
      h1 {
         font-size: 1.5em; /* Уменьшаем главный заголовок */
     }
+    .locus-block select:nth-of-type(1) {
+        justify-self: auto; /* Выравнивание селекта по началу ячейки грида (опционально) */
+    }
+    /* Выбираем второй select внутри .locus-block */
+    .locus-block select:nth-of-type(2) {
+        justify-self: auto; /* Выравнивание селекта по началу ячейки грида (опционально) */
+    }
+    
 }

@@ -13,14 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
         "(выберите все аллели)": "images/placeholder.png",
         "Рецессивный рыжий (Бело-рыжий)": "images/recessive_red.png",
         "Доминантный черный (Бело-черный)": "images/dominant_black.png",
-        "Доминантный рыжий (Бело-соболиный)": "images/dy_sable_no_mask.png",
-        "Доминантный рыжий с маской (Бело-соболиный)": "images/dy_sable_masked.png",
+        "Доминантный рыжий (Рыжий бело-соболиный)": "images/dy_sable_no_mask.png",
+        "Доминантный рыжий с маской (Рыжий бело-соболиный)": "images/dy_sable_masked.png",
         "Зачерненный рыжий (Бело-соболиный)": "images/sy_sable_no_mask.png",
         "Зачерненный рыжий с маской (Бело-соболиный)": "images/sy_sable_masked.png",
-        "Чепрачный (Триколор)": "images/saddle_no_mask.png",
-        "Чепрачный с маской (Триколор)": "images/saddle_masked.png",
-        "Черно-подпалый (Триколор)": "images/tricolor_no_mask.png",
-        "Черно-подпалый с маской (Триколор)": "images/tricolor_masked.png",
+        "Чепрачный (Хаунд-триколор)": "images/saddle_no_mask.png",
+        "Чепрачный с маской (Хаунд-триколор)": "images/saddle_masked.png",
+        "Черно-подпалый (Классический триколор)": "images/tricolor_no_mask.png",
+        "Черно-подпалый с маской (Классический триколор)": "images/tricolor_masked.png",
         "Рецессивный черный (Бело-черный)": "images/recessive_black.png",
         "placeholder": "images/placeholder.png" // Запасной вариант
     };
@@ -66,10 +66,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const maskText = hasEm ? " с маской" : "";
 
         switch (dominantA) {
-            case 'DY': return `Доминантный рыжий${maskText} (Бело-соболиный)`;
+            case 'DY': return `Доминантный рыжий${maskText} (Рыжий бело-соболиный)`;
             case 'SY': return `Зачерненный рыжий${maskText} (Бело-соболиный)`;
-            case 'BS': return `Чепрачный${maskText} (Триколор)`;
-            case 'at': return `Черно-подпалый${maskText} (Триколор)`;
+            case 'BS': return `Чепрачный${maskText} (Хаунд-триколор)`;
+            case 'at': return `Черно-подпалый${maskText} (Классический триколор)`;
             case 'a': return "Рецессивный черный (Бело-черный)"; // a/a k/k
             default: return "(ошибка в аллелях A)";
         }
