@@ -1,0 +1,204 @@
+/* --- Импорт шрифта (необязательно, но улучшает вид) --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* --- Базовые стили --- */
+body {
+    font-family: 'Poppins', sans-serif; /* Используем импортированный шрифт */
+    line-height: 1.7;
+    margin: 0; /* Убираем отступы по умолчанию */
+    padding: 30px; /* Добавляем внутренние отступы к body */
+    background-color: #f8f9fa; /* Очень светлый серый фон */
+    color: #495057; /* Мягкий темно-серый текст */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрируем основной контент */
+}
+
+h1 {
+    color: #0d6efd; /* Яркий синий для главного заголовка */
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+h2 {
+    color: #343a40; /* Темно-серый для подзаголовков секций */
+    margin-bottom: 20px;
+    font-weight: 600;
+    border-bottom: 2px solid #dee2e6; /* Тонкая линия под заголовком секции */
+    padding-bottom: 8px;
+}
+
+/* --- Секции родителей и результатов --- */
+.parent-section,
+#results-section {
+    border: none; /* Убираем стандартную рамку */
+    padding: 25px 30px; /* Увеличиваем внутренние отступы */
+    margin-bottom: 30px;
+    border-radius: 12px; /* Более выраженное скругление углов */
+    background-color: #ffffff; /* Белый фон для секций */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07); /* Мягкая, выраженная тень */
+    width: 100%; /* Занимают доступную ширину */
+    max-width: 700px; /* Ограничиваем максимальную ширину */
+    box-sizing: border-box; /* Учитываем padding и border в ширине */
+}
+
+/* --- Блок выбора аллелей --- */
+.locus-block {
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px; /* Пространство между элементами в блоке */
+}
+
+/* --- Лейблы --- */
+label {
+    font-weight: 500; /* Средняя жирность */
+    color: #495057;
+    min-width: 120px; /* Чуть шире для выравнивания */
+}
+
+/* --- Выпадающие списки --- */
+select {
+    padding: 8px 12px;
+    border: 1px solid #ced4da; /* Светлая серая рамка */
+    border-radius: 6px; /* Скругление */
+    background-color: #fff;
+    font-family: inherit; /* Наследуем шрифт */
+    font-size: 0.95em;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+select:focus {
+    border-color: #86b7fe; /* Синяя рамка при фокусе */
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25); /* Тень при фокусе */
+}
+
+/* --- Блок отображения фенотипа (родитель) --- */
+.phenotype-display-container {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Расстояние между картинкой и текстом */
+    margin-top: 20px;
+    padding: 12px 15px;
+    background-color: #eef2f7; /* Очень светлый синевато-серый фон */
+    border-radius: 8px;
+}
+
+/* Изображение фенотипа (родитель и результат) - БЕЗ РАМКИ И ФОНА */
+.phenotype-image,
+#results-list li img {
+    width: 50px; /* Фиксированная ширина */
+    height: 50px; /* Фиксированная высота */
+    border-radius: 8px; /* Скругление */
+    object-fit: cover; /* Масштабирование с обрезкой */
+    flex-shrink: 0; /* Запрещаем сжатие картинки */
+    /* УБРАНЫ: border и background-color */
+}
+
+#results-list li img {
+    width: 45px; /* Чуть меньше для списка результатов */
+    height: 45px;
+}
+
+/* Текст фенотипа (родитель) */
+.phenotype-display {
+    font-weight: 600; /* Пожирнее */
+    color: #0d6efd; /* Используем основной синий цвет */
+    font-size: 1.05em;
+}
+
+/* --- Кнопка расчета --- */
+#calculate-button {
+    display: block;
+    width: fit-content; /* Ширина по содержимому */
+    margin: 25px auto 30px auto; /* Отступы сверху/снизу, авто для центрирования */
+    padding: 12px 35px; /* Больше горизонтальный паддинг */
+    font-size: 1.1em;
+    font-weight: 600; /* Пожирнее */
+    cursor: pointer;
+    background-color: #0d6efd; /* Основной синий */
+    color: white;
+    border: none;
+    border-radius: 8px; /* Скругление */
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    box-shadow: 0 3px 8px rgba(13, 110, 253, 0.3); /* Тень для кнопки */
+}
+
+#calculate-button:hover {
+    background-color: #0b5ed7; /* Немного темнее синий при наведении */
+    transform: translateY(-1px); /* Легкий подъем при наведении */
+}
+
+#calculate-button:active {
+    transform: translateY(0); /* Возврат при нажатии */
+    box-shadow: 0 1px 4px rgba(13, 110, 253, 0.3);
+}
+
+
+/* --- Секция и список результатов --- */
+#results-section h2 {
+     border-bottom-color: #0d6efd; /* Синяя линия для заголовка результатов */
+}
+
+#results-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+#results-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Отступ между картинкой и текстом */
+    padding: 12px 5px; /* Вертикальный паддинг, небольшой горизонтальный */
+    border-bottom: 1px solid #e9ecef; /* Очень светлый разделитель */
+    transition: background-color 0.2s ease; /* Плавный фон при наведении */
+}
+
+#results-list li:last-child {
+    border-bottom: none; /* Убираем линию у последнего */
+}
+
+#results-list li:hover {
+     background-color: #f8f9fa; /* Легкое выделение строки при наведении */
+     border-radius: 4px;
+}
+
+/* Добавляем немного отзывчивости */
+@media (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+    .parent-section,
+    #results-section {
+        padding: 15px 20px;
+    }
+    .locus-block {
+        flex-direction: column; /* Располагаем элементы вертикально на малых экранах */
+        align-items: flex-start; /* Выравнивание по левому краю */
+    }
+    label {
+        min-width: auto; /* Сбрасываем мин. ширину лейбла */
+        margin-bottom: 5px;
+    }
+    select {
+         width: 100%; /* Селекты на всю ширину */
+         margin-right: 0;
+         box-sizing: border-box;
+    }
+    .phenotype-display-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+     #calculate-button {
+        width: 100%; /* Кнопка на всю ширину */
+        text-align: center;
+    }
+     h1 {
+        font-size: 1.5em; /* Уменьшаем главный заголовок */
+    }
+}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор окрасов папийонов</title>
+    <!-- Подключаем внешний файл стилей -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Калькулятор генетики окрасов папийонов</h1>
+
+    <!-- ==================== РОДИТЕЛЬ 1 (МАТЬ) ==================== -->
+    <div class="parent-section">
+        <h2>Родитель 1 (Мать)</h2>
+
+        <!-- Локус A -->
+        <div class="locus-block">
+            <label for="mother_a_1">Локус A (Агути):</label>
+            <select id="mother_a_1" name="mother_a_1">
+                <option value="">--Аллель 1--</option>
+                <option value="DY">DY - Доминантный рыжий</option>
+                <option value="SY">SY - Зачерненный рыжий</option>
+                <option value="BS">BS - Чепрак</option>
+                <option value="at">at - Черно-подпалый</option>
+                <option value="a">a - Рецессивный черный</option>
+            </select>
+            <select id="mother_a_2" name="mother_a_2">
+                <option value="">--Аллель 2--</option>
+                <option value="DY">DY - Доминантный рыжий</option>
+                <option value="SY">SY - Зачерненный рыжий</option>
+                <option value="BS">BS - Чепрак</option>
+                <option value="at">at - Черно-подпалый</option>
+                <option value="a">a - Рецессивный черный</option>
+            </select>
+        </div>
+
+        <!-- Локус E -->
+        <div class="locus-block">
+            <label for="mother_e_1">Локус E:</label>
+            <select id="mother_e_1" name="mother_e_1">
+                <option value="">--Аллель 1--</option>
+                <option value="Em">Em - Маска</option>
+                <option value="E">E - Без маски</option>
+                <option value="e">e - Рецессивный рыжий</option> <!-- Убрал "(аллель)" для краткости -->
+            </select>
+            <select id="mother_e_2" name="mother_e_2">
+                <option value="">--Аллель 2--</option>
+                <option value="Em">Em - Маска</option>
+                <option value="E">E - Без маски</option>
+                <option value="e">e - Рецессивный рыжий</option>
+            </select>
+        </div>
+
+        <!-- Локус K -->
+        <div class="locus-block">
+            <label for="mother_k_1">Локус K:</label>
+            <select id="mother_k_1" name="mother_k_1">
+                <option value="">--Аллель 1--</option>
+                <option value="Kb">Kb - Доминантный черный</option>
+                <option value="k">k - Разрешает Агути</option> <!-- Чуть понятнее -->
+            </select>
+            <select id="mother_k_2" name="mother_k_2">
+                 <option value="">--Аллель 2--</option>
+                 <option value="Kb">Kb - Доминантный черный</option>
+                 <option value="k">k - Разрешает Агути</option>
+            </select>
+        </div>
+
+        <!-- Отображение фенотипа Матери -->
+        <div class="phenotype-display-container">
+            <img id="mother_phenotype_image" src="images/placeholder.png" alt="Окрас матери" class="phenotype-image">
+            <div class="phenotype-display" id="mother_phenotype">
+                Окрас матери: (выберите все аллели)
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== РОДИТЕЛЬ 2 (ОТЕЦ) ==================== -->
+    <div class="parent-section">
+        <h2>Родитель 2 (Отец)</h2>
+
+        <!-- Локус A -->
+        <div class="locus-block">
+            <label for="father_a_1">Локус A (Агути):</label>
+            <select id="father_a_1" name="father_a_1">
+                <option value="">--Аллель 1--</option>
+                <option value="DY">DY - Доминантный рыжий</option>
+                <option value="SY">SY - Зачерненный рыжий</option>
+                <option value="BS">BS - Чепрак</option>
+                <option value="at">at - Черно-подпалый</option>
+                <option value="a">a - Рецессивный черный</option>
+            </select>
+            <select id="father_a_2" name="father_a_2">
+                <option value="">--Аллель 2--</option>
+                <option value="DY">DY - Доминантный рыжий</option>
+                <option value="SY">SY - Зачерненный рыжий</option>
+                <option value="BS">BS - Чепрак</option>
+                <option value="at">at - Черно-подпалый</option>
+                <option value="a">a - Рецессивный черный</option>
+            </select>
+        </div>
+
+        <!-- Локус E -->
+        <div class="locus-block">
+            <label for="father_e_1">Локус E:</label>
+            <select id="father_e_1" name="father_e_1">
+                <option value="">--Аллель 1--</option>
+                <option value="Em">Em - Маска</option>
+                <option value="E">E - Без маски</option>
+                <option value="e">e - Рецессивный рыжий</option>
+            </select>
+            <select id="father_e_2" name="father_e_2">
+                <option value="">--Аллель 2--</option>
+                <option value="Em">Em - Маска</option>
+                <option value="E">E - Без маски</option>
+                <option value="e">e - Рецессивный рыжий</option>
+            </select>
+        </div>
+
+        <!-- Локус K -->
+        <div class="locus-block">
+            <label for="father_k_1">Локус K:</label>
+            <select id="father_k_1" name="father_k_1">
+                 <option value="">--Аллель 1--</option>
+                 <option value="Kb">Kb - Доминантный черный</option>
+                 <option value="k">k - Разрешает Агути</option>
+            </select>
+            <select id="father_k_2" name="father_k_2">
+                 <option value="">--Аллель 2--</option>
+                 <option value="Kb">Kb - Доминантный черный</option>
+                 <option value="k">k - Разрешает Агути</option>
+            </select>
+        </div>
+
+        <!-- Отображение фенотипа Отца -->
+         <div class="phenotype-display-container">
+            <img id="father_phenotype_image" src="images/placeholder.png" alt="Окрас отца" class="phenotype-image">
+            <div class="phenotype-display" id="father_phenotype">
+                Окрас отца: (выберите все аллели)
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== КНОПКА РАСЧЕТА ==================== -->
+    <button id="calculate-button">Рассчитать окрасы щенков</button>
+
+    <!-- ==================== РЕЗУЛЬТАТЫ ==================== -->
+    <div id="results-section">
+        <h2>Возможные окрасы щенков:</h2>
+        <ul id="results-list">
+            <!-- Результаты будут добавлены сюда с помощью JavaScript -->
+        </ul>
+    </div>
+
+    <!-- Подключаем внешний файл с JavaScript кодом -->
+    <!-- Атрибут defer гарантирует, что скрипт выполнится после построения HTML -->
+    <script src="calculator.js" defer></script>
+
+</body>
+</html>
